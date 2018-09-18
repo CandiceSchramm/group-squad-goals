@@ -2,11 +2,23 @@
   "name": "group-squad-goals",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/auth/google": {
+      "target": "http://localhost:5000"
+    },
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-google-maps": "^9.4.5",
-    "react-scripts": "1.1.5"
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
