@@ -1,0 +1,37 @@
+{
+  "name": "group-squad-goals",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7",
+    "nodemon": "^1.18.3",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "stripe": "^6.8.0",
+    "yarn": "^1.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CandiceSchramm/group-squad-goals.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CandiceSchramm/group-squad-goals/issues"
+  },
+  "homepage": "https://github.com/CandiceSchramm/group-squad-goals#readme"
+}
