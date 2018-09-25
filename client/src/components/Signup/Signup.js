@@ -86,8 +86,8 @@ class LoginPage extends React.Component {
                       <Button
                         justIcon
                         href="/auth/google"
-                        target="/auth/google"
-                        onClick={e => e.preventDefault()}
+                        target=""
+                        onClick={this.handleToggle}
                       >
                         <i className={"fab fa-google-plus-g"} />
                       </Button>
