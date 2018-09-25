@@ -29,6 +29,7 @@ module.exports = app => {
     res.send(req.user);
   });
   app.post("/api/register", (req, res) => {
+    console.log(req.body, "hello");
     const { errors, isValid } = validateRegisterInput(req.body);
 
     if (!isValid) {

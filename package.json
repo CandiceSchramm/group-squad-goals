@@ -4,11 +4,8 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "server.js",
   "dependencies": {
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
-=======
     "axios": "^0.18.0",
->>>>>>> b19e4ea80dcc411ac091d6837dafc227191a9525
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.1",
     "cookie-session": "^2.0.0-beta.3",
