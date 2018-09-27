@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GoogleMap from "../../components/GoogleMap/GoogleMap";
 import Landing from "../Landing/Landing";
 import * as actions from "../../redux/actions/auth";
 import { connect } from "react-redux";
+import Events from "../CategoryBox";
+import Single from "../EventDetails";
 import Nav from "../Nav/Nav";
 import Header from "../Header/Header";
 
@@ -49,19 +51,20 @@ class App extends Component {
   render() {
     const { haveLocation, userLocation, defaultLocation } = this.state;
     return (
+      <Router>
       <div className="container">
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Route exact path="/" component={Landing} />
+        <Switch>
+          <Route exact path="/events" component={Events}/>
+          <Route exact path="/single" component={Single}/>
+          <Route exact path="/" component={Landing} />
             {haveLocation ? (
               <GoogleMap location={userLocation} />
             ) : (
               <GoogleMap location={defaultLocation} />
             )}
-          </div>
-        </BrowserRouter>
+        </Switch>
       </div>
+      </Router>
     );
   }
 }
