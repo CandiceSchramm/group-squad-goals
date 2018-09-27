@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GoogleMap from "../../components/GoogleMap/GoogleMap";
 import Landing from "../Landing/Landing";
+import Profile from "../Profile/Profile";
 import * as actions from "../../redux/actions/auth";
 import { connect } from "react-redux";
 import Events from "../CategoryBox";
@@ -55,6 +56,7 @@ class App extends Component {
       <div className="container">
         <Switch>
           <Route exact path="/events" component={Events}/>
+          <Route exact path="/profile" component={Profile} />
           <Route exact path="/single" component={Single}/>
           <Route exact path="/" component={Landing} />
             {haveLocation ? (
