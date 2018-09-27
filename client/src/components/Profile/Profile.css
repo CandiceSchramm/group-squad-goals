@@ -1,0 +1,13 @@
+.jumbotron {
+  margin-top: 25px;
+  opacity: 0.5;
+}
+
+.display-4 {
+  text-align: center;
+  color: blue;
+}
+
+.card {
+  margin-bottom: 30px;
+}
