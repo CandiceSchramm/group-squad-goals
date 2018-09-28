@@ -5,14 +5,20 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
+
 const styles = theme => ({
+    
   root: {
     flexGrow: 1
   },
   paper: {
-    padding: theme.spacing.unit * 2,
+    marginRight: 30,
+    marginLeft: 30,
+    height: 900,
+    marginTop: 10,
+    marginBottom: 10,
     textAlign: "center",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
   }
 });
 
@@ -21,23 +27,11 @@ function Background(props) {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <div style={{ paddingRight: 200, paddingLeft: 200, paddingTop: 50}}>
-            <Grid container spacing={40}>
-              <Grid item xs={12}>
-                <Paper className={classes.paper}>xs=12</Paper>
-              </Grid>
-              <Grid item xs={6}>
-                <Paper className={classes.paper}>xs=6</Paper>
-              </Grid>
-              <Grid item xs={6}>
-                <Paper className={classes.paper}>xs=6</Paper>
-              </Grid>
-            </Grid>
-          </div>
+      <Paper className={classes.paper}>
+        <Grid container spacing={12}>
+
         </Grid>
-      </Grid>
+      </Paper>
     </div>
   );
 }
