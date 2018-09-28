@@ -5,13 +5,16 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ProfileNav from "../Nav/ProfileNav";
+import Background from "../Background/Background"
 
 class Profile extends Component {
   render() {
     return (
       <div>
         <ProfileNav />
-        <Grid container spacing={12} />
+        <Grid container spacing={12}>
+        <Background/>
+        </Grid>
       </div>
     );
   }
