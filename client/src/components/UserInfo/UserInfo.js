@@ -27,7 +27,7 @@ function UserInfo(props) {
         <ListItem>
           <ListItemText primary="User's Name">
           </ListItemText>
-          <PurpleButton buttonText="#requestDigits"></PurpleButton>
+          <PurpleButton buttonText="#send"></PurpleButton>
         </ListItem>
         <Divider />
         <ListItem>
