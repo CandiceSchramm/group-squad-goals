@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+
 
 
 const styles = theme => ({
@@ -27,11 +27,7 @@ function Background(props) {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container spacing={12}>
-
-        </Grid>
-      </Paper>
+      <Paper className={classes.paper}/>
     </div>
   );
 }
