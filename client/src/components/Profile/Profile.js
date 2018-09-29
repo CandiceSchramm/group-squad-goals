@@ -8,6 +8,7 @@ import ProfileNav from "../Nav/ProfileNav";
 import Background from "../Background/Background";
 import ImageAvatars from "../Avatar/Avatar";
 import UserInfo from "../UserInfo/UserInfo";
+import SendDM from "../SendDM/SendDM";
 
 class Profile extends Component {
   render() {
@@ -16,7 +17,7 @@ class Profile extends Component {
         <ProfileNav />
         <Grid
           container
-          spacing={16}
+          spacing={12}
           direction="row"
           justify="flex-end"
           alignItems="center"
@@ -28,6 +29,11 @@ class Profile extends Component {
           <Grid item xs={6}>
             <UserInfo />
           </Grid>
+            <Grid item xs={2} />
+            <Grid item xs={8}>
+              <SendDM />
+            </Grid>
+            <Grid item xs={2} />
           {/* </Background> */}
         </Grid>
       </div>

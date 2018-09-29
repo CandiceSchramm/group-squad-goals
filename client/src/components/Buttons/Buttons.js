@@ -17,7 +17,6 @@ function ContainedButtons(props) {
   return (
     <div>
       <Button variant="contained" className={classes.button}>
-        Find Events
       </Button>
       {/* <Button variant="contained" color="primary" className={classes.button}>
       Find Events

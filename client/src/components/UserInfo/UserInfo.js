@@ -5,6 +5,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import PurpleButton from '../Buttons/PurpleButton';
+
 
 const styles = theme => ({
   root: {
@@ -23,13 +25,16 @@ function UserInfo(props) {
     <div className={classes.root}>
       <List component="nav">
         <ListItem>
-          <ListItemText primary="User's Name" />
+          <ListItemText primary="User's Name">
+          </ListItemText>
+          <PurpleButton buttonText="#requestDigits"></PurpleButton>
         </ListItem>
         <Divider />
-        <ListItem divider>
+        <ListItem>
           <ListItemText primary="About Me" />
         </ListItem>
       </List>
+      
     </div>
   );
 }
