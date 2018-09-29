@@ -7,7 +7,7 @@ import Profile from "../Profile/Profile";
 import * as actions from "../../redux/actions/auth";
 import { connect } from "react-redux";
 import Events from "../CategoryBox";
-import Single from "../EventDetails";
+import Activity from "../EventDetails";
 import Nav from "../Nav/Nav";
 import Header from "../Header/Header";
 
@@ -57,7 +57,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/events" component={Events}/>
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/single" component={Single}/>
+          <Route exact path="/activity/:id" component={Activity}/>
           <Route exact path="/" component={Landing} />
             {haveLocation ? (
               <GoogleMap location={userLocation} />

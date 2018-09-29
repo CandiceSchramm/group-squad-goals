@@ -3,7 +3,14 @@ import React from "react"
 const EventInfo = props => (
     <div>   
         <div>
-            {props.title}
+            {props.title ? (
+                <div>
+                    {props.title}
+                </div>) : (
+                <div>
+                    No title abalible avalible at this time
+                </div>)    
+            }
         </div>
         <div>
             {props.description ? ( 
@@ -18,9 +25,6 @@ const EventInfo = props => (
         <div>
             {/* <Map/> */} This is where a map will go
         </div>
-        <button>
-            Interested
-        </button>
         <button>
             Not Interested
         </button>

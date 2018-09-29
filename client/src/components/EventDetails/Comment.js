@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import ChatBox from "./ChatBox";
+import ChatBox from "./CommentFeed";
 
 class Chat extends Component {
 
     state = {
         chat:[]
     }
-    loadChat = (eventID) => {
+    loadChat = () => {
         API.getChat(eventID).
         then(res => this.setState({chat: res.data})
         ).catch(err => console.log(err))
