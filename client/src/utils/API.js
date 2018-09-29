@@ -12,7 +12,9 @@ if (process.env.NODE_ENV === "production") {
 }
 export default {
   saveUser: function(newUser) {
-    return axios.post(URL + "/api/register", newUser);
+    axios.post(URL + "/api/register", newUser).then(res => {
+      return res;
+    });
   },
   search: function(searchParams) {
     console.log(BASEURL + "app_key=B4sxP4pZVXn2ZRz2" + searchParams);

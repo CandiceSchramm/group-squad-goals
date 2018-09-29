@@ -53,19 +53,19 @@ class App extends Component {
     const { haveLocation, userLocation, defaultLocation } = this.state;
     return (
       <Router>
-      <div className="container">
-        <Switch>
-          <Route exact path="/events" component={Events}/>
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/activity/:id" component={Activity}/>
-          <Route exact path="/" component={Landing} />
+        <div className="container">
+          <Switch>
+            <Route exact path="/events" component={Events} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/activity/:id" component={Activity}/>
+            <Route exact path="/" component={Landing} />
             {haveLocation ? (
               <GoogleMap location={userLocation} />
             ) : (
               <GoogleMap location={defaultLocation} />
             )}
-        </Switch>
-      </div>
+          </Switch>
+        </div>
       </Router>
     );
   }
