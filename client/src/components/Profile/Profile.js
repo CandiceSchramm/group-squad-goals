@@ -17,24 +17,30 @@ class Profile extends Component {
         <ProfileNav />
         <Grid
           container
-          spacing={12}
+          spacing={24}
           direction="row"
-          justify="flex-end"
+          justify="center"
           alignItems="center"
         >
           {/* <Background> */}
-          <Grid item xs={6}>
+          <Grid item xs={4}>
             <ImageAvatars />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={4}>
             <UserInfo />
           </Grid>
-            <Grid item xs={2} />
+          <Grid
+            container
+            spacing={24}
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
             <Grid item xs={8}>
               <SendDM />
             </Grid>
-            <Grid item xs={2} />
-          {/* </Background> */}
+            {/* </Background> */}
+          </Grid>
         </Grid>
       </div>
     );
