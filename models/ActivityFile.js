@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 const ActivitySchema = new Schema({
     activityID : {
         type: String, 
-        required: true
+        required: true,
+        unique: true
     },
     users : [{
         type: Schema.Types.ObjectId,

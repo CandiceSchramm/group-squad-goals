@@ -59,40 +59,11 @@ class CategoryBox extends Component {
             <div>
 
                 <EventsNav />
-                <Grid container spacing={12} />
-                {/* <Buttons {'onClick'}={(event) => this.APISearch(event)} />  */}
-                
-        
-                <EventCard>            
-                {this.state.categories.length ? (
+                {this.state.categories.length > 0 ? (
                     <div>
-                        {/* {this.state.categories.map(category => (
-                            <SearchCategories
-                                categoryinfo={category}
-                                onClick={this.updateCategories}
-                            >
-                            </SearchCategories>
-                        ))} */}
-                    </div>
-                ) : (
-                        <h3>
-                            Please wait for Component to load
-                    </h3>
-
-                    )}
-                <button onClick={(event) => this.APISearch(event)}>
-                    Find me activities
-                </button>
-                {this.state.events.length > 0 ? (
-                    <div>
-                        {this.state.events.map(eventView => (
+                        {this.state.categories.map(category => (
                             <Chips
-                                eventtitle={eventView.title}
-                                eventtime={eventView.start_time}
-                                eventaddress={eventView.venue_address}
-                                eventcity={eventView.city_name}
-                                eventid={eventView.id}
-                                eventimage={eventView.image ? eventView.image.small.url : "placeholder"}
+                                eventInfo={category}
                             >
                             </Chips>
 
@@ -101,26 +72,13 @@ class CategoryBox extends Component {
                 ) : (
                         <h3>
                             No Results Yet
-                    </h3>
-                    )}
-
-
-                </EventCard>
-
-                <Chips />
-
-
+                        </h3>
+                    )
+                }
+                <EventCard/>
 
             </div>
         );
     }
 }
 export default CategoryBox;
-
-
-//.data.events.event[].title
-//.data.events.event[].start_time
-//data.events.event[].venue_address
-//data.events.event[].city_name
-//data.events.event[].id
-//data.events/event[].image.small.url
