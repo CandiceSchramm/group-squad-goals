@@ -5,13 +5,13 @@ class PotentailSquad extends Component {
     state = {
         SquadMates: []
     }
-    loadSquad = eventID => {
-        API.getInterested(eventID)
-        .then(res =>
-            console.log(res)
-            // this.setState({SquadMates: res.data})
-        ).catch(err => console.log(err));
-    }
+    // loadSquad = eventID => {
+    //     API.getInterested(eventID)
+    //     .then(res =>
+    //         console.log(res)
+    //         // this.setState({SquadMates: res.data})
+    //     ).catch(err => console.log(err));
+    // }
 
     render() {
         return (

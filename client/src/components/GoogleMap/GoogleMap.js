@@ -17,8 +17,8 @@ const RegularMap = withScriptjs(
     >
       <Marker
         position={{
-          lat: props.userLocation.coords.latitude,
-          lng: props.userLocation.coords.longitude
+          // lat: props.userLocation.coords.latitude,
+          // lng: props.userLocation.coords.longitude
         }}
       />
     </GoogleMap>

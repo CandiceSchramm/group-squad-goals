@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "./Profile.css";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import ProfileNav from "../Nav/ProfileNav";
 import Background from "../Background/Background";
 import ImageAvatars from "../Avatar/Avatar";
 import UserInfo from "../UserInfo/UserInfo";
 import SendDM from "../SendDM/SendDM";
+import DmThreads from "../DmThreads/DmThreads"
+import DigitRequestThread from "../DigitRequests/DigitRequestThread"
 
 class Profile extends Component {
   render() {
@@ -37,9 +36,16 @@ class Profile extends Component {
             alignItems="center"
           >
             <Grid item xs={8}>
-              <SendDM />
+              <SendDM/>
             </Grid>
             {/* </Background> */}
+          </Grid>
+          <Grid item xs={5}>
+          <DmThreads></DmThreads>
+          </Grid>
+          <Grid item xs={3}>
+          <DigitRequestThread>
+          </DigitRequestThread>
           </Grid>
         </Grid>
       </div>

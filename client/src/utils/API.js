@@ -21,5 +21,11 @@ export default {
     return axios.get(BASEURL + "app_key=B4sxP4pZVXn2ZRz2" + searchParams, {
       "Content-Type": "application/json"
     });
+  },
+  singleEvent: function(info) {
+    return axios.get(URL + "/single/" + info);
+  },
+  searchSingle: function(id) {
+    return axios.get("https://cors-anywhere.herokuapp.com/http://api.eventful.com/json/events/get?app_key=B4sxP4pZVXn2ZRz2&id=" + id);
   }
 };
