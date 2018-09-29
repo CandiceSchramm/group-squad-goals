@@ -3,8 +3,12 @@ import API from "../../utils/API";
 
 class PotentailSquad extends Component {
     state = {
+        eventID: this.props.id,
         SquadMates: []
     }
+    // componentDidMount = () => {
+    //     this.loadSquad(this.state.eventID);
+    // }
     // loadSquad = eventID => {
     //     API.getInterested(eventID)
     //     .then(res =>

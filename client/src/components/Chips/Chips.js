@@ -29,26 +29,7 @@ function OutlinedChips(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Chip label="Concerts" className={classes.chip} variant="outlined" />
-      <Chip label="Festivals" className={classes.chip} variant="outlined" />
-      <Chip label="Preforming" className={classes.chip} variant="outlined" />
-      <Chip label="Movies" className={classes.chip} variant="outlined" />
-      <Chip label="Films" className={classes.chip} variant="outlined" />
-      <Chip label="Comedy" className={classes.chip} variant="outlined" />
-      <Chip label="Nightlife" className={classes.chip} variant="outlined" />
-      <Chip label="Campus" className={classes.chip} variant="outlined" />
-      <Chip label="Networking" className={classes.chip} variant="outlined" />
-      <Chip label="Education" className={classes.chip} variant="outlined" />
-      <Chip label="Galleries" className={classes.chip} variant="outlined" />
-      <Chip label="Literary" className={classes.chip} variant="outlined" />
-      <Chip label="Museums" className={classes.chip} variant="outlined" />
-      <Chip label="Science" className={classes.chip} variant="outlined" />
-      <Chip label="Sports" className={classes.chip} variant="outlined" />
-      <Chip label="Outdoors" className={classes.chip} variant="outlined" />
-      <Chip label="Pets" className={classes.chip} variant="outlined" />
-      <Chip label="Neighborhood" className={classes.chip} variant="outlined" />
-      <Chip label="Spirituality" className={classes.chip} variant="outlined" />
-      <Chip label="Organziations" className={classes.chip} variant="outlined" />
+      <Chip label={props.eventInfo} className={classes.chip} variant="outlined" />
     </div>
   );
 }
