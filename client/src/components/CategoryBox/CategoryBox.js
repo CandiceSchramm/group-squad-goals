@@ -17,18 +17,12 @@ class CategoryBox extends Component {
 
     state = {
         categories: ["concerts", "festivals", "family", "preforming", "movies", "film", "comedy", "nightlife", "campus", "networking", "education", "galleries", "literary", "museums", "science", "sports", "outdoors", "pets", "neighborhood", "spirituality", "organizations"],
-        chosenCategories: [],
+        chosenCategories: "",
         events: []
     }
 
-    APISearch = () => {
-        let info = "&location=Salt+Lake+City&date=This+Week&within=25&c=";
-        for (var i = 0; i < this.state.chosenCategories.length - 1; i++) {
-            info = info + this.state.chosenCategories[i] + "||";
-        }
-        if (this.state.chosenCategories.length > 1) {
-            info = info + this.state.chosenCategories[this.state.chosenCategories.length - 1];
-        }
+    componentDidMount = () => {
+        let info = "&location=Salt+Lake+City&date=This+Week&within=25";
         console.log(info);
         API.search(info)
             .then(
@@ -37,22 +31,21 @@ class CategoryBox extends Component {
                     console.log(this.state.events);
                 }
             )
-            .catch(err => console.log(err));
+        .catch(err => console.log(err));
     }
 
-    updateCategories = (event, category) => {
-        const { name, value } = event.target;
-        console.log("Event target: " + event.target, category);
-        console.log("name: " + name);
-        console.log("value: " + value);
-        let newcategories = [...this.state.chosenCategories];
-        newcategories.push(category);
-        console.log("newcategories: " + newcategories);
-        this.setState({
-            chosenCategories: newcategories
-        });
-        console.log(this.state.chosenCategories);
-    };
+    categorySearch = (category) => {
+        let info = "&location=Salt+Lake+City&date=This+Week&within=25&c=" + category;
+        console.log(info);
+        API.search(info)
+            .then(
+                res => {
+                    this.setState({ events: res.data.events.event });
+                    console.log(this.state.events);
+                }
+            )
+        .catch(err => console.log(err));
+    }
 
     render() {
         return (
@@ -64,6 +57,7 @@ class CategoryBox extends Component {
                         {this.state.categories.map(category => (
                             <Chips
                                 eventInfo={category}
+                                onClick={this.categorySearch}
                             >
                             </Chips>
 
