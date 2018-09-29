@@ -125,7 +125,6 @@ class PrimarySearchAppBar extends React.Component {
         onClose={this.handleMenuClose}
       >
         <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-        <MenuItem onClick={this.handleClose}>My account</MenuItem>
       </Menu>
     );
 
@@ -139,7 +138,7 @@ class PrimarySearchAppBar extends React.Component {
       >
         <MenuItem>
           <IconButton color="inherit">
-            <Badge className={classes.margin} badgeContent={4} color="secondary">
+            <Badge className={classes.margin} badgeContent={this.props.messageCount} color="secondary">
               <MailIcon />
             </Badge>
           </IconButton>
@@ -147,7 +146,7 @@ class PrimarySearchAppBar extends React.Component {
         </MenuItem>
         <MenuItem>
           <IconButton color="inherit">
-            <Badge className={classes.margin} badgeContent={11} color="secondary">
+            <Badge className={classes.margin} badgeContent={this.props.notificationCount} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
@@ -170,32 +169,19 @@ class PrimarySearchAppBar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="title" color="inherit" noWrap>
-              Material-UI
+              #getAtMe
             </Typography>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <Input
-                placeholder="Search…"
-                disableUnderline
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-              />
-            </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={4} color="secondary">
+                {/* <Badge className={classes.margin} badgeContent={this.props.messageCount} color="secondary"> */}
                   <MailIcon />
-                </Badge>
+                {/* </Badge> */}
               </IconButton>
               <IconButton color="inherit">
-                <Badge className={classes.margin} badgeContent={17} color="secondary">
+                {/* <Badge className={classes.margin} badgeContent={this.props.alertCount} color="secondary"> */}
                   <NotificationsIcon />
-                </Badge>
+                {/* </Badge> */}
               </IconButton>
               <IconButton
                 aria-owns={isMenuOpen ? 'material-appbar' : null}
