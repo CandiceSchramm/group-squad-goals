@@ -7,11 +7,11 @@ class Chat extends Component {
     state = {
         chat:[]
     }
-    loadChat = () => {
-        API.getChat(eventID).
-        then(res => this.setState({chat: res.data})
-        ).catch(err => console.log(err))
-    }
+    // loadChat = () => {
+    //     API.getChat(eventID).
+    //     then(res => this.setState({chat: res.data})
+    //     ).catch(err => console.log(err))
+    // }
 
     render(){
         return (
