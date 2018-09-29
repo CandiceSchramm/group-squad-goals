@@ -32,8 +32,10 @@ class CategoryBox extends Component {
         console.log(info);
         API.search(info)
             .then(
-                // res => console.log(res)
-                res => this.setState({ events: res.data.events.event })
+                res => {
+                    this.setState({ events: res.data.events.event });
+                    console.log(this.state.events);
+                }
             )
             .catch(err => console.log(err));
     }
@@ -84,7 +86,7 @@ class CategoryBox extends Component {
                 {this.state.events.length > 0 ? (
                     <div>
                         {this.state.events.map(eventView => (
-                            <SingleEvent
+                            <Chips
                                 eventtitle={eventView.title}
                                 eventtime={eventView.start_time}
                                 eventaddress={eventView.venue_address}
@@ -92,7 +94,7 @@ class CategoryBox extends Component {
                                 eventid={eventView.id}
                                 eventimage={eventView.image ? eventView.image.small.url : "placeholder"}
                             >
-                            </SingleEvent>
+                            </Chips>
 
                         ))}
                     </div>
