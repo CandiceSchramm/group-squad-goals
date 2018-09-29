@@ -9,7 +9,7 @@ class Chat extends Component {
     }
     loadChat = (eventID) => {
         API.getChat(eventID).
-        then(this.setState({chat: res.data})
+        then(res => this.setState({chat: res.data})
         ).catch(err => console.log(err))
     }
 
