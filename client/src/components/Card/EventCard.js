@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from "@material-ui/core/Grid";
+import BlueOutlinedButton from '../Buttons/BlueOutlinedButton';
 
 const styles = {
   card: {
@@ -28,22 +30,45 @@ function ImgMediaCard(props) {
     <Card className={classes.card}>
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            {props.EventTitle}
-          </Typography>
-          <Typography component="p">
-            
-          </Typography>
+          <Grid continer
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="felx-start"
+            spacing={0}
+          >
+            <Grid item xs={12}>
+              <Typography gutterBottom variant="headline" component="h2">
+                {props.EventTitle}
+              </Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography component="p">
+                {props.EventTime}
+              </Typography>
+            </Grid>
+            <Grid item xs={3}>
+              <Typography component="p">
+                {props.EventVenue}
+              </Typography>
+            </Grid>
+          </Grid>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="medium" color="default">
-          Intersted
-        </Button>
-        <Button size="medium" color="primary">
-          Going
-        </Button>
-      </CardActions>
+      <Grid continer
+        container
+        direction="row"
+        justify="flex-end"
+        alignItems="center"
+        spacing={0}
+      >
+        <CardActions>
+          <BlueOutlinedButton size="medium" color="default"
+            buttonText="Event Details"
+          >
+          </BlueOutlinedButton>
+        </CardActions>
+      </Grid>
     </Card>
   );
 }

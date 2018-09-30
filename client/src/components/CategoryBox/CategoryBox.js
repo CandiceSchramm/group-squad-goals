@@ -84,16 +84,26 @@ class CategoryBox extends Component {
                         </h3>
                     )
                 }
-                <FindEventButton
-                    onClick={this.APISearch()}
-                />
+                <Grid
+                    container
+                    direction="row"
+                    justify="space-evenly"
+                    alignItems="center"
+                >
+                    <FindEventButton
+                        onClick={this.APISearch()}
+                    />
+                </Grid>
+
                 {this.state.events.map(event => (
                     <EventCard
-                    EventTitle={event.title}
+                        EventTitle={event.title}
+                        EventTime={event.start_time}
+                        EventVenue={event.venue_name}
                     >
                     </EventCard>
-                            
-                        
+
+
 
                 ))}
 
