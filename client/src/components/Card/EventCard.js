@@ -29,7 +29,7 @@ function ImgMediaCard(props) {
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
-            
+            {props.EventTitle}
           </Typography>
           <Typography component="p">
             

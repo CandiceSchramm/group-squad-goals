@@ -10,7 +10,7 @@ import Background from '../Background/Background';
 import EventCard from '../Card/EventCard';
 import Typography from '@material-ui/core/Typography';
 import Chips from '../Chips/Chips'
-import Buttons from '../Buttons/Buttons'
+import FindEventButton from "../Buttons/FindEventButton";
 
 
 class CategoryBox extends Component {
@@ -20,6 +20,7 @@ class CategoryBox extends Component {
         chosenCategories: [],
         events: []
     }
+
 
     APISearch = () => {
         let info = "&location=Salt+Lake+City&date=This+Week&within=25&c=";
@@ -60,24 +61,44 @@ class CategoryBox extends Component {
 
                 <EventsNav />
                 {this.state.categories.length > 0 ? (
-                    <div>
-                        {this.state.categories.map(category => (
-                            <Chips
-                                eventInfo={category}
-                            >
-                            </Chips>
+                    <Grid
+                        container
+                        direction="row"
+                        justify="space-evenly"
+                        alignItems="center"
+                    >
 
+                        {this.state.categories.map(category => (
+
+                            <Grid item xs={1}>
+                                <Chips
+                                    eventInfo={category}
+                                >
+                                </Chips>
+                            </Grid>
                         ))}
-                    </div>
+                    </Grid>
                 ) : (
                         <h3>
                             No Results Yet
                         </h3>
                     )
                 }
-                <EventCard/>
+                <FindEventButton
+                    onClick={this.APISearch()}
+                />
+                {this.state.events.map(event => (
+                    <EventCard
+                    EventTitle={event.title}
+                    >
+                    </EventCard>
+                            
+                        
 
-            </div>
+                ))}
+
+
+            </div >
         );
     }
 }
