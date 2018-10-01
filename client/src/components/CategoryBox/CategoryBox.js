@@ -22,14 +22,8 @@ class CategoryBox extends Component {
     }
 
 
-    APISearch = () => {
-        let info = "&location=Salt+Lake+City&date=This+Week&within=25&c=";
-        for (var i = 0; i < this.state.chosenCategories.length - 1; i++) {
-            info = info + this.state.chosenCategories[i] + "||";
-        }
-        if (this.state.chosenCategories.length > 1) {
-            info = info + this.state.chosenCategories[this.state.chosenCategories.length - 1];
-        }
+    componentDidMount = () => {
+        let info = "&location=Salt+Lake+City&date=This+Week&within=25";
         console.log(info);
         API.search(info)
             .then(
@@ -38,27 +32,29 @@ class CategoryBox extends Component {
                     console.log(this.state.events);
                 }
             )
-            .catch(err => console.log(err));
+        .catch(err => console.log(err));
     }
 
-    updateCategories = (event, category) => {
-        const { name, value } = event.target;
-        console.log("Event target: " + event.target, category);
-        console.log("name: " + name);
-        console.log("value: " + value);
-        let newcategories = [...this.state.chosenCategories];
-        newcategories.push(category);
-        console.log("newcategories: " + newcategories);
-        this.setState({
-            chosenCategories: newcategories
-        });
-        console.log(this.state.chosenCategories);
-    };
+    categorySearch = (category) => {
+        let info = "&location=Salt+Lake+City&date=This+Week&within=25&c=" + category;
+        console.log(info);
+        API.search(info)
+            .then(
+                res => {
+                    this.setState({ events: res.data.events.event });
+                    console.log(this.state.events);
+                }
+            )
+        .catch(err => console.log(err));
+    }
+
+    gotoEvent = (id) => {
+        API.loadpage(id)
+    }
 
     render() {
         return (
             <div>
-
                 <EventsNav />
                 {this.state.categories.length > 0 ? (
                     <Grid
@@ -67,12 +63,11 @@ class CategoryBox extends Component {
                         justify="space-evenly"
                         alignItems="center"
                     >
-
                         {this.state.categories.map(category => (
-
                             <Grid item xs={1}>
                                 <Chips
                                     eventInfo={category}
+                                    onClick={this.categorySearch}
                                 >
                                 </Chips>
                             </Grid>
@@ -85,16 +80,14 @@ class CategoryBox extends Component {
                     )
                 }
                 <FindEventButton
-                    onClick={this.APISearch()}
+                    onClick={this.gotoEvent}
                 />
                 {this.state.events.map(event => (
                     <EventCard
                     EventTitle={event.title}
+                    id={event.id}
                     >
                     </EventCard>
-                            
-                        
-
                 ))}
 
 

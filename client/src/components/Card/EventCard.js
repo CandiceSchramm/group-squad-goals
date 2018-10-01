@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const styles = {
   card: {
@@ -24,6 +25,8 @@ const styles = {
 
 function ImgMediaCard(props) {
   const { classes } = props;
+  const seeEvent = "/activity/" + props.id;
+  console.log(props);
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -38,10 +41,7 @@ function ImgMediaCard(props) {
       </CardActionArea>
       <CardActions>
         <Button size="medium" color="default">
-          Intersted
-        </Button>
-        <Button size="medium" color="primary">
-          Going
+          <Link to={seeEvent}>Intersted</Link>
         </Button>
       </CardActions>
     </Card>

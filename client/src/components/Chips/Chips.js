@@ -30,7 +30,7 @@ function OutlinedChips(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Chip label={props.eventInfo} className={classes.chip} variant="outlined" />
+      <Chip label={props.eventInfo} onClick={(event)=>props.onClick(event, props.categoryinfo)} className={classes.chip} variant="outlined" />
     </div>
   );
 }
