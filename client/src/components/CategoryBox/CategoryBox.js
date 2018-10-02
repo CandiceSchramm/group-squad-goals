@@ -22,7 +22,6 @@ class CategoryBox extends Component {
 
     componentDidMount = () => {
         let info = "&location=Salt+Lake+City&date=This+Week&within=25";
-        console.log(info);
         API.search(info)
             .then(
                 res => {
@@ -35,14 +34,12 @@ class CategoryBox extends Component {
 
     categorySearch = (category) => {
         let info = "&location=Salt+Lake+City&date=This+Week&within=25&c=" + category;
-        console.log(info);
         API.search(info)
             .then(
                 res => {
                     let oldevents = [...this.state.events, ...res.data.events.event];
 
                     this.setState({ events: oldevents });
-                    console.log(this.state.events);
                 }
             )
             .catch(err => console.log(err));
@@ -51,11 +48,7 @@ class CategoryBox extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
                 <ReusableNav />
-=======
-                {/* <EventsNav /> */}
->>>>>>> fc76984e5885247c051cff37efa1d73e2546b36b
                 {this.state.categories.length > 0 ? (
                     <Grid
                         container
@@ -86,6 +79,7 @@ class CategoryBox extends Component {
                         EventVenue={event.venue_name}
                         EventAddress={event.venue_address + ", " + 
                         " " + event.city_name + " " + event.region_name + ", " + event.postal_code}
+                        EventID={event.id}
                     >
                     </EventCard>
                 ))}
