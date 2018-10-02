@@ -47,10 +47,6 @@ class CategoryBox extends Component {
         .catch(err => console.log(err));
     }
 
-    gotoEvent = (id) => {
-        API.loadpage(id)
-    }
-
     render() {
         return (
             <div>
