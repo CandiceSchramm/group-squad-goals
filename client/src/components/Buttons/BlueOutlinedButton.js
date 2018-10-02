@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
   button: {
@@ -16,7 +17,7 @@ function BlueOutlinedButton(props) {
   const { classes } = props;
   return (
     <div>
-      <Button variant="outlined" color="primary" className={classes.button}>
+      <Button component={Link} to={props.buttonLink} variant="outlined" color="primary" className={classes.button}>
         {props.buttonText}
       </Button>
     </div>
