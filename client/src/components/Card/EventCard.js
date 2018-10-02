@@ -8,7 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '../Buttons/BlueOutlinedButton';
 import Typography from '@material-ui/core/Typography';
-import {Link} from 'react-router-dom';
+import API from "../../utils/API";
+import {Redirect} from "react-router-dom";
 
 const styles = {
   card: {
@@ -22,6 +23,15 @@ const styles = {
     objectFit: 'cover',
   },
 };
+
+function AddtoDB(id) {
+  console.log("Hello");
+  API.addActivity({
+    activityID: id
+  })
+  .then(res=>{console.log(res)})
+  .catch(err => console.log(err));
+}
 
 function ImgMediaCard(props) {
   const { classes } = props;
@@ -39,7 +49,7 @@ function ImgMediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button buttonLink={seeEvent} size="medium" color="default" buttonText = "#Checkitout">
+        <Button buttonLink={seeEvent} size="medium" color="default" buttonText = "#Checkitout" onClick={AddtoDB(props.id)}>
         </Button>
       </CardActions>
     </Card>

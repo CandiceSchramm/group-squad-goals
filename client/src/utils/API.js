@@ -26,16 +26,18 @@ export default {
     return axios.get("https://cors-anywhere.herokuapp.com/http://api.eventful.com/json/events/get?app_key=B4sxP4pZVXn2ZRz2&id=" + id);
   },
   getActivity: function(id) {
-    return axios.get(URL + "/activity/" + id)
+    return axios.get(URL + "/backend/activity/" + id)
   },
   getMessages: function(id) {
-    return axios.get(URL + "/message/" + id)
+    return axios.get(URL + "/backend/message/" + id)
   },
   sendMessage: function(id) {
-    return axios.post(URL + "/message", id )
+    return axios.post(URL + "/backend/message/", id )
   },
   addActivity: function(id) {
-    return axios.post(URL + "/activity", id)
+    console.log("Hello, this is the id: " + id);
+    console.log("And this ths the URL: " + URL)
+    return axios.post(URL + "/backend/activity/", id)
   },
 
 };
