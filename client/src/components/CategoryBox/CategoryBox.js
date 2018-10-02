@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Grid from "@material-ui/core/Grid";
-import EventsNav from "../Nav/EventsNav";
 import SearchIcon from '@material-ui/icons/Search';
 import Background from '../Background/Background';
 import EventCard from '../Card/EventCard';
@@ -48,7 +47,9 @@ class CategoryBox extends Component {
     render() {
         return (
             <div>
-                <ReusableNav />
+                <ReusableNav 
+                navbarTitle="#EVENTS"
+                />
                 {this.state.categories.length > 0 ? (
                     <Grid
                         container

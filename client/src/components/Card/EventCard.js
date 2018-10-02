@@ -12,6 +12,7 @@ import Grid from "@material-ui/core/Grid";
 import BlueOutlinedButton from '../Buttons/BlueOutlinedButton';
 import API from "../../utils/API";
 import { Redirect } from "react-router-dom";
+import Blue from '../Buttons/Blue';
 
 const styles = {
   card: {
@@ -77,10 +78,18 @@ function ImgMediaCard(props) {
                     </Typography>
                   </Grid>
                 </Grid>
+                <Grid continer 
+                  container
+                  direction="row"
+                  justify="flex-end"
+                  alignItems="felx-end"
+                  spacing={0}
+                >
                 <Grid item xs={0}>
                   {console.log("I am here")}
-                  <BlueOutlinedButton  buttonLink={seeEvent} size="medium" color="default" buttonText = "#Checkitout" onClick={AddtoDB(props.EventID)}>
-                  </BlueOutlinedButton>
+                  <Blue  buttonLink={seeEvent} size="medium" color="default" buttonText = "#Checkitout" onClick={AddtoDB(props.EventID)}>
+                  </Blue>
+                </Grid>
                 </Grid>
               </CardContent>
           </Card>
