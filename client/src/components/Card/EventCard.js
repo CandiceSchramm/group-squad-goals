@@ -6,9 +6,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+import Button from '../Buttons/BlueOutlinedButton';
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const styles = {
   card: {
@@ -25,8 +25,7 @@ const styles = {
 
 function ImgMediaCard(props) {
   const { classes } = props;
-  const seeEvent = "/activity/" + props.id;
-  console.log(props);
+  let seeEvent = "/activity/" + props.id;
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -40,8 +39,7 @@ function ImgMediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="medium" color="default">
-          <Link to={seeEvent}>Intersted</Link>
+        <Button buttonLink={seeEvent} size="medium" color="default" buttonText = "#Checkitout">
         </Button>
       </CardActions>
     </Card>
