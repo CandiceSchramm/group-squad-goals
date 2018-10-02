@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import BlueOutlinedButton from '../Buttons/BlueOutlinedButton';
+import API from "../../utils/API";
+import { Redirect } from "react-router-dom";
 
 const styles = {
   card: {
@@ -23,6 +25,15 @@ const styles = {
     objectFit: 'cover',
   },
 };
+
+function AddtoDB(id) {
+  console.log("Hello");
+  API.addActivity({
+    activityID: id
+  })
+    .then(res => { console.log(res) })
+    .catch(err => console.log(err));
+}
 
 function ImgMediaCard(props) {
   const { classes } = props;
@@ -79,8 +90,8 @@ function ImgMediaCard(props) {
             >
               <CardActions>
                 <Grid item xs={0}>
-                  <BlueOutlinedButton buttonLink={seeEvent} size="medium" color="default" buttonText="#Checkitout">
-                  </BlueOutlinedButton>
+                  <Button buttonLink={seeEvent} size="medium" color="default" buttonText="#Checkitout" onClick={AddtoDB(props.id)}>
+                  </Button>
                 </Grid>
               </CardActions>
             </Grid>

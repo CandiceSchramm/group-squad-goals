@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import SearchCategories from "../SearchCatigories";
-import SearchBox from "../SearchBox";
 import API from "../../utils/API";
 import Grid from "@material-ui/core/Grid";
 import EventsNav from "../Nav/EventsNav";
@@ -41,7 +39,9 @@ class CategoryBox extends Component {
         API.search(info)
             .then(
                 res => {
-                    this.setState({ events: res.data.events.event });
+                    let oldevents = [...this.state.events, ...res.data.events.event];
+
+                    this.setState({ events: oldevents });
                     console.log(this.state.events);
                 }
             )
@@ -51,7 +51,11 @@ class CategoryBox extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
                 <ReusableNav />
+=======
+                {/* <EventsNav /> */}
+>>>>>>> fc76984e5885247c051cff37efa1d73e2546b36b
                 {this.state.categories.length > 0 ? (
                     <Grid
                         container
