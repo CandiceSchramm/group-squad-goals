@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Profile.css";
 import Grid from "@material-ui/core/Grid";
-import ProfileNav from "../Nav/ProfileNav";
+import ReusableNav from "../Nav/ReusableNav";
 import Background from "../Background/Background";
 import ImageAvatars from "../Avatar/Avatar";
 import UserInfo from "../UserInfo/UserInfo";
@@ -13,7 +13,10 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <ProfileNav />
+        <ReusableNav
+        navbarTitle="#GETATME"
+        >
+        </ReusableNav>
         <Grid
           container
           spacing={24}
