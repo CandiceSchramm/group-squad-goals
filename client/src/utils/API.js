@@ -35,8 +35,6 @@ export default {
     return axios.post(URL + "/backend/message/", id )
   },
   addActivity: function(id) {
-    console.log("Hello, this is the id: " + id);
-    console.log("And this ths the URL: " + URL)
     return axios.post(URL + "/backend/activity/", id)
   },
 

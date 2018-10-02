@@ -27,7 +27,6 @@ const styles = {
 };
 
 function AddtoDB(id) {
-  console.log("Hello");
   API.addActivity({
     activityID: id
   })
@@ -37,7 +36,7 @@ function AddtoDB(id) {
 
 function ImgMediaCard(props) {
   const { classes } = props;
-  let seeEvent = "/activity/" + props.id;
+  let seeEvent = "/activity/" + props.EventID;
   return (
     <div>
       <Grid containter
@@ -49,7 +48,6 @@ function ImgMediaCard(props) {
       >
         <Grid item xs={10}>
           <Card className={classes.card}>
-            <CardActionArea>
               <CardContent>
                 <Grid continer
                   container
@@ -79,22 +77,12 @@ function ImgMediaCard(props) {
                     </Typography>
                   </Grid>
                 </Grid>
-              </CardContent>
-            </CardActionArea>
-            <Grid containter
-              container
-              direction="row"
-              justify="flex-end"
-              alignItems="center"
-              spacing={1}
-            >
-              <CardActions>
                 <Grid item xs={0}>
-                  <Button buttonLink={seeEvent} size="medium" color="default" buttonText="#Checkitout" onClick={AddtoDB(props.id)}>
-                  </Button>
+                  {console.log("I am here")}
+                  <BlueOutlinedButton  buttonLink={seeEvent} size="medium" color="default" buttonText = "#Checkitout" onClick={AddtoDB(props.EventID)}>
+                  </BlueOutlinedButton>
                 </Grid>
-              </CardActions>
-            </Grid>
+              </CardContent>
           </Card>
         </Grid>
       </Grid>
