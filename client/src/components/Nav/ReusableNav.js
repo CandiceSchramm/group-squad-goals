@@ -87,7 +87,7 @@ const styles = theme => ({
   },
 });
 
-class PrimarySearchAppBar extends React.Component {
+class ReusableNav extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
@@ -169,7 +169,7 @@ class PrimarySearchAppBar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="title" color="inherit" noWrap>
-              #getAtMe
+              {this.props.navbarTitle}
             </Typography>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
@@ -206,8 +206,8 @@ class PrimarySearchAppBar extends React.Component {
   }
 }
 
-PrimarySearchAppBar.propTypes = {
+ReusableNav.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PrimarySearchAppBar);
+export default withStyles(styles)(ReusableNav);
