@@ -10,6 +10,7 @@ import EventCard from '../Card/EventCard';
 import Typography from '@material-ui/core/Typography';
 import Chips from '../Chips/Chips'
 import FindEventButton from "../Buttons/FindEventButton";
+import ReusableNav from "../Nav/ReusableNav";
 
 
 class CategoryBox extends Component {
@@ -31,7 +32,7 @@ class CategoryBox extends Component {
                     console.log(this.state.events);
                 }
             )
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
     }
 
     categorySearch = (category) => {
@@ -44,13 +45,13 @@ class CategoryBox extends Component {
                     console.log(this.state.events);
                 }
             )
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
     }
 
     render() {
         return (
             <div>
-                <EventsNav />
+                <ReusableNav />
                 {this.state.categories.length > 0 ? (
                     <Grid
                         container
@@ -74,13 +75,13 @@ class CategoryBox extends Component {
                         </h3>
                     )
                 }
-                <FindEventButton
-                    onClick={this.gotoEvent}
-                />
                 {this.state.events.map(event => (
                     <EventCard
-                    EventTitle={event.title}
-                    id={event.id}
+                        EventTitle={event.title}
+                        EventTime={event.start_time}
+                        EventVenue={event.venue_name}
+                        EventAddress={event.venue_address + ", " + 
+                        " " + event.city_name + " " + event.region_name + ", " + event.postal_code}
                     >
                     </EventCard>
                 ))}
