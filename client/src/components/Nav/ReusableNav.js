@@ -19,7 +19,6 @@ import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import API from "../../utils/API";
 
-
 let URL;
 if (process.env.NODE_ENV === "production") {
   URL = process.env.REACT_APP_API_PROD;
@@ -111,6 +110,10 @@ class ReusableNav extends React.Component {
     mobileMoreAnchorEl: null
   };
 
+  componentDidMount() {
+    console.log(URL);
+  }
+
   handleProfileMenuOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
@@ -129,10 +132,11 @@ class ReusableNav extends React.Component {
   };
 
   handleLogout = () => {
-    console.log("hi")
+    console.log("hi");
     API.logout().then(res => {
-      <Redirect to={URL + "/"}>
-      </Redirect>;
+      console.log("hi4withfront");
+      // <Redirect to={"https://localhost:3000/"}>
+      // </Redirect>;
     });
   };
 
@@ -163,9 +167,15 @@ class ReusableNav extends React.Component {
         open={isMobileMenuOpen}
         onClose={this.handleMobileMenuClose}
       >
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Profile</MenuItem>
-        <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
+        <MenuItem>
+          <a href="/events">Home</a>
+        </MenuItem>
+        <MenuItem>
+          <a href="/profile">Profile</a>
+        </MenuItem>
+        <MenuItem>
+          <a href="/api/logout">Logout</a>
+        </MenuItem>
       </Menu>
     );
 

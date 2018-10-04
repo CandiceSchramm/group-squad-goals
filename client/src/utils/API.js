@@ -38,6 +38,7 @@ export default {
     return axios.post(URL + "/backend/activity/", id)
   },
   logout: function() {
+    console.log("hi3")
     return axios.get(URL + "/api/logout")
   }
 
