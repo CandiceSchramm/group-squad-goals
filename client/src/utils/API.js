@@ -37,5 +37,8 @@ export default {
   addActivity: function(id) {
     return axios.post(URL + "/backend/activity/", id)
   },
+  logout: function() {
+    return axios.get(URL + "/api/logout")
+  }
 
 };
