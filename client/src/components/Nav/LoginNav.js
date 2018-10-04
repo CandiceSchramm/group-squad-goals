@@ -93,91 +93,19 @@ const styles = theme => ({
 
 function HomeIcon(props) {
   return (
-    <a href="/events">
     <SvgIcon {...props}>
       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-      <a href="/events"></a>
     </SvgIcon>
-    </a>
   );
 }
 
-class ReusableNav extends React.Component {
-  state = {
-    anchorEl: null,
-    mobileMoreAnchorEl: null
-  };
-
-  componentDidMount() {
-    console.log(URL);
-  }
-
-  handleProfileMenuOpen = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-
-  handleMenuClose = () => {
-    this.setState({ anchorEl: null });
-    this.handleMobileMenuClose();
-  };
-
-  handleMobileMenuOpen = event => {
-    this.setState({ mobileMoreAnchorEl: event.currentTarget });
-  };
-
-  handleMobileMenuClose = () => {
-    this.setState({ mobileMoreAnchorEl: null });
-  };
-
-  handleLogout = () => {
-    console.log("hi");
-    API.logout().then(res => {});
-  };
+class LoginNav extends React.Component {
 
   render() {
-    const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const renderMenu = (
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMenuOpen}
-        onClose={this.handleMenuClose}
-      >
-        <MenuItem onClick={this.handleClose}>
-          <a href="/profile">Profile</a>
-        </MenuItem>
-        <MenuItem onClick={this.handleClose}>
-          <a href="/api/logout">Logout</a>
-        </MenuItem>
-      </Menu>
-    );
-
-    const renderMobileMenu = (
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMobileMenuOpen}
-        onClose={this.handleMobileMenuClose}
-      >
-        <MenuItem>
-          <a href="/events">Home</a>
-        </MenuItem>
-        <MenuItem>
-          <a href="/profile">Profile</a>
-        </MenuItem>
-        <MenuItem>
-          <a href="/api/logout">Logout</a>
-        </MenuItem>
-      </Menu>
-    );
 
     return (
+        
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -190,39 +118,15 @@ class ReusableNav extends React.Component {
               {this.props.navbarTitle}
             </Typography>
             <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <HomeIcon style={{ color: "white" }}/>
-              </IconButton>
-              <IconButton
-                aria-owns={isMenuOpen ? "material-appbar" : null}
-                aria-haspopup="true"
-                onClick={this.handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-haspopup="true"
-                onClick={this.handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </div>
           </Toolbar>
         </AppBar>
-        {renderMenu}
-        {renderMobileMenu}
       </div>
     );
   }
 }
 
-ReusableNav.propTypes = {
+LoginNav.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ReusableNav);
+export default withStyles(styles)(LoginNav);

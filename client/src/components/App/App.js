@@ -8,8 +8,6 @@ import * as actions from "../../redux/actions/auth";
 import { connect } from "react-redux";
 import Events from "../CategoryBox";
 import Activity from "../EventDetails";
-import Nav from "../Nav/Nav";
-import Header from "../Header/Header";
 
 const getLocation = () => {
   const geolocation = navigator.geolocation;
@@ -53,11 +51,11 @@ class App extends Component {
     const { haveLocation, userLocation, defaultLocation } = this.state;
     return (
       <Router>
-        <div className="container">
+        <div className="container" id="app">
           <Switch>
             <Route exact path="/events" component={Events} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/activity/:id" component={Activity}/>
+            <Route exact path="/activity/:id" component={Activity} />
             <Route exact path="/" component={Landing} />
             {haveLocation ? (
               <GoogleMap location={userLocation} />

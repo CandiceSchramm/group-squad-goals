@@ -8,8 +8,6 @@ import Icon from "@material-ui/core/Icon";
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 // core components
-import Header from "../Header/Header";
-import HeaderLinks from "../Header/HeaderLinks";
 import Footer from "../Footer/Footer";
 import GridContainer from "../Grid/GridContainer";
 import GridItem from "../Grid/GridItem";
@@ -97,13 +95,6 @@ class LoginPage extends React.Component {
           <Redirect to="/events" />
         ) : (
           <div>
-            <Header
-              absolute
-              brand="Material Kit React"
-              rightLinks={<HeaderLinks />}
-              {...rest}
-            />
-
             <div className={classes.container}>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={4}>
