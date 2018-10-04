@@ -15,7 +15,6 @@ const styles = theme => ({
 
 function BlueOutlinedButton(props) {
   const { classes } = props;
-  console.log(props);
   return (
     <div>
       <Link to={`${props.buttonLink}`}>

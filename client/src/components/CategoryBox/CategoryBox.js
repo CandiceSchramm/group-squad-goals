@@ -44,7 +44,6 @@ class CategoryBox extends Component {
     API.search(info)
       .then(res => {
         this.setState({ events: res.data.events.event });
-        console.log(this.state.events);
       })
       .catch(err => console.log(err));
 

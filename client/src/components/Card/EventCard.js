@@ -78,7 +78,6 @@ function ImgMediaCard(props) {
                   </Grid>
                 </Grid>
                 <Grid item xs={0}>
-                  {console.log("I am here")}
                   <BlueOutlinedButton  buttonLink={seeEvent} size="medium" color="default" buttonText = "#Checkitout" onClick={AddtoDB(props.EventID)}>
                   </BlueOutlinedButton>
                 </Grid>
