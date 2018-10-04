@@ -23,6 +23,7 @@ module.exports = app => {
   );
 
   app.get("/api/logout", (req, res) => {
+    console.log(req.user);
     req.logout();
     res.redirect("/");
   });
@@ -34,6 +35,7 @@ module.exports = app => {
     } else {
       // var jwtDecoded = jwt_decode(token);
       // console.log(decoded);
+      res.send("not loggedin yo");
     }
   });
 
