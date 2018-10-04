@@ -59,7 +59,7 @@ class CategoryBox extends Component {
     let token = localStorage.getItem("token");
     console.log("Here is the user's token: ", token);
     // API.findOne(token).then();
-    axios.post(URL + "/api/current_user", token);
+    axios.get("/api/current_user/" + token);
   };
 
   categorySearch = category => {
