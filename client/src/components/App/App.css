@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body {
+  background-image: url("./assets/images/friends-color-fest.jpg");
+  /* Set rules to fill background */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin:20px auto 75px auto;
+  height:100%; 
+  width: auto; 
+}
+
