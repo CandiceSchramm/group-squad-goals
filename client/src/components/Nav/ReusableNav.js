@@ -94,10 +94,10 @@ const styles = theme => ({
 function HomeIcon(props) {
   return (
     <a href="/events">
-    <SvgIcon {...props}>
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-      <a href="/events"></a>
-    </SvgIcon>
+      <SvgIcon {...props}>
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        <a href="/events" />
+      </SvgIcon>
     </a>
   );
 }
@@ -134,6 +134,11 @@ class ReusableNav extends React.Component {
     API.logout().then(res => {});
   };
 
+  resetMe = () => {
+    // logout
+    sessionStorage.removeItem("token"); //remove token from storage
+  };
+
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
@@ -152,7 +157,9 @@ class ReusableNav extends React.Component {
           <a href="/profile">Profile</a>
         </MenuItem>
         <MenuItem onClick={this.handleClose}>
-          <a href="/api/logout">Logout</a>
+          <a href="/api/logout" onClick={this.resetMe}>
+            Logout
+          </a>
         </MenuItem>
       </Menu>
     );
@@ -192,7 +199,7 @@ class ReusableNav extends React.Component {
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">
-                <HomeIcon style={{ color: "white" }}/>
+                <HomeIcon style={{ color: "white" }} />
               </IconButton>
               <IconButton
                 aria-owns={isMenuOpen ? "material-appbar" : null}
