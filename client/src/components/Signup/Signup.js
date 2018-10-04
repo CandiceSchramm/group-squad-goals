@@ -97,13 +97,6 @@ class LoginPage extends React.Component {
           <Redirect to="/events" />
         ) : (
           <div>
-            <Header
-              absolute
-              brand="Material Kit React"
-              rightLinks={<HeaderLinks />}
-              {...rest}
-            />
-
             <div className={classes.container}>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={4}>
