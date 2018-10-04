@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const validateRegisterInput = require("../validation/register");
 const keys = require("../config/keys");
+var jwtDecode = require("jwt-decode");
 
 module.exports = app => {
   app.get(
@@ -27,9 +28,12 @@ module.exports = app => {
   });
 
   app.get("/api/current_user", (req, res) => {
+    console.log(req.body);
     if (req.user) {
       res.send(req.user);
     } else {
+      // var jwtDecoded = jwt_decode(token);
+      // console.log(decoded);
     }
   });
 
