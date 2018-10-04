@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./Landing.css";
 import Signup from "../Signup/Signup";
-import ReusableNav from "../Nav/ReusableNav";
+import LoginNav from "../Nav/LoginNav";
 
 class Landing extends Component {
   render() {
     return (
       <div>
-        <ReusableNav navbarTitle="#SquadGoals"></ReusableNav>
+        <LoginNav navbarTitle="#SquadGoals"></LoginNav>
         <Signup />
       </div>
     );
