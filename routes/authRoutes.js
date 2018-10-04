@@ -27,7 +27,10 @@ module.exports = app => {
   });
 
   app.get("/api/current_user", (req, res) => {
-    res.send(req.user);
+    if (req.user) {
+      res.send(req.user);
+    } else {
+    }
   });
 
   app.post("/api/verify", (req, res) => {
@@ -112,7 +115,8 @@ module.exports = app => {
             (err, token) => {
               res.json({
                 success: true,
-                token: "Bearer " + token
+                token: "Bearer " + token,
+                user: user.id
               });
             }
           );
