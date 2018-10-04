@@ -6,30 +6,31 @@ const validateRegisterInput = require("../validation/register");
 const keys = require("../config/keys");
 
 module.exports = app => {
-  app.get(
-    "/auth/google",
-    passport.authenticate("google", {
+  app.get("/auth/google", passport.authenticate("google",
+  {
       scope: ["profile", "email"]
-    })
-  );
+  })
+);
 
-  app.get(
-    "/auth/google/callback",
-    passport.authenticate("google"),
-    (req, res) => {
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google"),
+  (req, res) => {
       res.redirect("/events");
-    }
-  );
+  }
+);
 
-  app.get("/api/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
+app.get("/api/logout", (req, res) => {
+  console.log(req.user);
+  req.logout();
+  res.redirect("/");
+});
 
   app.get("/api/current_user", (req, res) => {
     if (req.user) {
       res.send(req.user);
     } else {
+      res.send("not loggedin yo")
     }
   });
 
