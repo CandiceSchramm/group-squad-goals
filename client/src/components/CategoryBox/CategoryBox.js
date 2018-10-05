@@ -77,7 +77,8 @@ class CategoryBox extends Component {
   render() {
     return (
       <div>
-        <ReusableNav />
+        <ReusableNav navbarTitle="#SquadEvents">
+        </ReusableNav>
         {this.state.categories.length > 0 ? (
           <Grid
             container
