@@ -6,17 +6,15 @@ import Background from "../Background/Background";
 import ImageAvatars from "../Avatar/Avatar";
 import UserInfo from "../UserInfo/UserInfo";
 import SendDM from "../SendDM/SendDM";
-import DmThreads from "../DmThreads/DmThreads"
-import DigitRequestThread from "../DigitRequests/DigitRequestThread"
+import DmThreads from "../DmThreads/DmThreads";
+import DigitRequestThread from "../DigitRequests/DigitRequestThread";
+import axios from "axios";
 
 class Profile extends Component {
   render() {
     return (
       <div>
-        <ReusableNav
-        navbarTitle="#GETATME"
-        >
-        </ReusableNav>
+        <ReusableNav navbarTitle="#GETATME" />
         <Grid
           container
           spacing={24}
@@ -39,16 +37,15 @@ class Profile extends Component {
             alignItems="center"
           >
             <Grid item xs={8}>
-              <SendDM/>
+              <SendDM />
             </Grid>
             {/* </Background> */}
           </Grid>
           <Grid item xs={5}>
-          <DmThreads></DmThreads>
+            <DmThreads />
           </Grid>
           <Grid item xs={3}>
-          <DigitRequestThread>
-          </DigitRequestThread>
+            <DigitRequestThread />
           </Grid>
         </Grid>
       </div>

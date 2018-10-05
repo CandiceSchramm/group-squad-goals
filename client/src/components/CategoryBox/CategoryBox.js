@@ -56,7 +56,7 @@ class CategoryBox extends Component {
       })
       .catch(err => console.log(err));
 
-    let token = localStorage.getItem("token");
+    let token = sessionStorage.getItem("token");
     console.log("Here is the user's token: ", token);
     // API.findOne(token).then();
     axios.get("/api/current_user/" + token);
