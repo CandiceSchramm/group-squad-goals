@@ -9,6 +9,14 @@ import Typography from "@material-ui/core/Typography";
 import Chips from "../Chips/Chips";
 import FindEventButton from "../Buttons/FindEventButton";
 import ReusableNav from "../Nav/ReusableNav";
+import axios from "axios";
+
+let URL;
+if (process.env.NODE_ENV === "production") {
+  URL = process.env.REACT_APP_API_PROD;
+} else {
+  URL = process.env.REACT_APP_API_DEV;
+}
 
 class CategoryBox extends Component {
   state = {
@@ -51,6 +59,7 @@ class CategoryBox extends Component {
     let token = localStorage.getItem("token");
     console.log("Here is the user's token: ", token);
     // API.findOne(token).then();
+    axios.get("/api/current_user/" + token);
   };
 
   categorySearch = category => {

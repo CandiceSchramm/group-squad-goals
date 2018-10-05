@@ -44,12 +44,12 @@ class LoginPage extends React.Component {
   componentDidMount() {
     axios
       .post(URL + "/api/verify", {
-        verify: localStorage.getItem("token")
+        verify: sessionStorage.getItem("token")
       })
       .then(res => {
         this.setState({
           user: {
-            token: localStorage.getItem("token")
+            token: sessionStorage.getItem("token")
           }
         });
       });
@@ -79,7 +79,7 @@ class LoginPage extends React.Component {
       })
       .then(res => {
         console.log("res.data: ", res.data);
-        localStorage.setItem("token", res.data.token);
+        sessionStorage.setItem("token", res.data.token);
         this.setState({
           user: res.data
         });
