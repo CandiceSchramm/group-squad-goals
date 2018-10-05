@@ -42,8 +42,6 @@ module.exports = app => {
     res.send("ok");
   });
   app.get("/api/current_user/:id", (req, res) => {
-    console.log("sdfasdfsdf");
-
     console.log(req.params.id);
     var decoded = jwt_decode(req.params.id);
     console.log(decoded);
@@ -52,9 +50,15 @@ module.exports = app => {
     } else {
       let userId = decoded.id;
       console.log("Here is the user's id: ", userId);
-      User.findOne({ userId }).then(user => {
+      User.findById({ _id: userId }).then(user => {
+        user = user.name;
+        console.log("This is the user's name:", user);
         if (!user) {
           return res.status(404).json({ email: "User not found" });
+        } else if (user) {
+          return res.json({
+            user
+          });
         }
       });
     }

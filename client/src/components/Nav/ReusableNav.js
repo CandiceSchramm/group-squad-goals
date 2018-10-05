@@ -134,7 +134,7 @@ class ReusableNav extends React.Component {
     API.logout().then(res => {});
   };
 
-  resetMe = () => {
+  logoutToken = () => {
     // logout
     sessionStorage.removeItem("token"); //remove token from storage
   };
@@ -157,7 +157,7 @@ class ReusableNav extends React.Component {
           <a href="/profile">Profile</a>
         </MenuItem>
         <MenuItem onClick={this.handleClose}>
-          <a href="/api/logout" onClick={this.resetMe}>
+          <a href="/api/logout" onClick={this.logoutToken}>
             Logout
           </a>
         </MenuItem>
@@ -179,7 +179,9 @@ class ReusableNav extends React.Component {
           <a href="/profile">Profile</a>
         </MenuItem>
         <MenuItem>
-          <a href="/api/logout">Logout</a>
+          <a href="/api/logout" onClick={this.logoutToken}>
+            Logout
+          </a>
         </MenuItem>
       </Menu>
     );
