@@ -9,6 +9,14 @@ import Typography from "@material-ui/core/Typography";
 import Chips from "../Chips/Chips";
 import FindEventButton from "../Buttons/FindEventButton";
 import ReusableNav from "../Nav/ReusableNav";
+import axios from "axios";
+
+let URL;
+if (process.env.NODE_ENV === "production") {
+  URL = process.env.REACT_APP_API_PROD;
+} else {
+  URL = process.env.REACT_APP_API_DEV;
+}
 
 class CategoryBox extends Component {
   state = {
@@ -40,16 +48,18 @@ class CategoryBox extends Component {
   };
 
   componentDidMount = () => {
-    let info = "&location=Salt+Lake+City&date=This+Week&within=25";
+    let location = "Salt+Lake+City"
+    let info = "&location=" + location + "&date=This+Week&within=25";
     API.search(info)
       .then(res => {
         this.setState({ events: res.data.events.event });
       })
       .catch(err => console.log(err));
 
-    let token = localStorage.getItem("token");
+    let token = sessionStorage.getItem("token");
     console.log("Here is the user's token: ", token);
     // API.findOne(token).then();
+    axios.get("/api/current_user/" + token);
   };
 
   categorySearch = category => {
@@ -67,7 +77,8 @@ class CategoryBox extends Component {
   render() {
     return (
       <div>
-        <ReusableNav />
+        <ReusableNav navbarTitle="#SquadEvents">
+        </ReusableNav>
         {this.state.categories.length > 0 ? (
           <Grid
             container

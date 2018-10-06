@@ -45,6 +45,12 @@ export default {
         userID : userID,
       }
     });
+  },
+  logout: function() {
+    console.log("hi3")
+    return axios.get(URL + "/api/logout")
+  },
+  getUser: function(userID) {
+    return axios.get(URL + "/backend/user/" + userID)
   }
-
 };

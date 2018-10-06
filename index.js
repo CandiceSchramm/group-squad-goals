@@ -22,8 +22,9 @@ app.use(
 
 app.use(cors());
 
+
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session({ secret: 'anything' }));
 app.use(routes);
 
 const PORT = process.env.PORT || 5000;

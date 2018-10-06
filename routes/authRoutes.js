@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const validateRegisterInput = require("../validation/register");
 const keys = require("../config/keys");
+var jwt_decode = require("jwt-decode");
 
 module.exports = app => {
   app.get(
@@ -22,14 +23,44 @@ module.exports = app => {
   );
 
   app.get("/api/logout", (req, res) => {
+    console.log(req.user);
     req.logout();
     res.redirect("/");
   });
 
   app.get("/api/current_user", (req, res) => {
+    console.log("sdfasdfsdf");
+
+    console.log(req.body);
+    // if (req.user) {
+    //   res.send(req.user);
+    // } else {
+    //   // var jwtDecoded = jwt_decode(token);
+    //   // console.log(decoded);
+    //   res.send("not loggedin yo");
+    // }
+    res.send("ok");
+  });
+  app.get("/api/current_user/:id", (req, res) => {
+    console.log(req.params.id);
+    var decoded = jwt_decode(req.params.id);
+    console.log(decoded);
     if (req.user) {
       res.send(req.user);
     } else {
+      let userId = decoded.id;
+      console.log("Here is the user's id: ", userId);
+      User.findById({ _id: userId }).then(user => {
+        user = user.name;
+        console.log("This is the user's name:", user);
+        if (!user) {
+          return res.status(404).json({ email: "User not found" });
+        } else if (user) {
+          return res.json({
+            user
+          });
+        }
+      });
     }
   });
 
