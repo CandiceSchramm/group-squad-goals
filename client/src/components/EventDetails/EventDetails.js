@@ -21,12 +21,6 @@ class EventDetails extends Component {
     API.searchSingle(this.props.match.params.id)
       .then(res => this.setState({ info: res.data }))
       .catch(err => console.log(err));
-    // API.addInterest(this.props.match.params.id, "5bafddb608dde32ca4700b9f")
-    //   .then(res => { console.log(res) })
-    //   .catch(err => console.log(err));
-    // API.addInterest(this.props.match.params.id, "5bafaa82c3540ae8aa833b7b")
-    //   .then(res => { console.log(res) })
-    //   .catch(err => console.log(err));
     this.loadSquad();
   }
 
@@ -46,7 +40,7 @@ class EventDetails extends Component {
   }
   getNames = (id) => {
     API.getUser(id)
-    .then(res => this.setState({Attendees:[...this.state.Attendees, res.data.name]})
+    .then(res => this.setState({Attendees:[...this.state.Attendees, res.data]})
   )
     .catch(err => console.log(err))
   }
