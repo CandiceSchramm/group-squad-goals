@@ -1,4 +1,7 @@
+var mongoose = require("mongoose");
 const db = require("../models");
+
+var ObjectId = mongoose.Types.ObjectId;
 
 module.exports = {
   findAll: function(req, res) {
@@ -10,13 +13,11 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Activity
-      .findById(req.params.id)
+      .findOne({activityID: req.params.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("Hello, i am in the db");
-    console.log(req.body);
     db.Activity
       .create(req.body)
       .then(dbModel => res.json("okay"))
@@ -24,7 +25,7 @@ module.exports = {
   },
   update: function(req, res) {
     db.Activity
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ activityID: req.params.id }, {$addToSet : {users : new ObjectId(req.body.userID)}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

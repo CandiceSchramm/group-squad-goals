@@ -37,9 +37,20 @@ export default {
   addActivity: function(id) {
     return axios.post(URL + "/backend/activity/", id)
   },
+  addInterest: function(activityID, userID){
+    return axios({
+      method: 'put',
+      url: URL + "/backend/activity/" + activityID,
+      data: {
+        userID : userID,
+      }
+    });
+  },
   logout: function() {
     console.log("hi3")
     return axios.get(URL + "/api/logout")
+  },
+  getUser: function(userID) {
+    return axios.get(URL + "/backend/user/" + userID)
   }
-
 };

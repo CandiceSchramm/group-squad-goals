@@ -5,18 +5,50 @@ import Comment from "./Comment";
 import API from "../../utils/API";
 import ReusableNav from "../Nav/ReusableNav";
 import Grid from "@material-ui/core/Grid";
+import { Button } from "../../../node_modules/@material-ui/core";
 
 // imports for nav and footer needed
 
 class EventDetails extends Component {
   state = {
     info: [],
-    id: this.props.match.params.id
+    id: this.props.match.params.id,
+    SquadMates: [],
+    Attendees: []
+    //currentUser: localStorage.getItem(user)
   };
-  componentWillMount() {
+  componentDidMount() {
     API.searchSingle(this.props.match.params.id)
       .then(res => this.setState({ info: res.data }))
       .catch(err => console.log(err));
+    // API.addInterest(this.props.match.params.id, "5bafddb608dde32ca4700b9f")
+    //   .then(res => { console.log(res) })
+    //   .catch(err => console.log(err));
+    // API.addInterest(this.props.match.params.id, "5bafaa82c3540ae8aa833b7b")
+    //   .then(res => { console.log(res) })
+    //   .catch(err => console.log(err));
+    this.loadSquad();
+  }
+
+  handleInterested(){
+    API.addInterest(this.state.id, "5bafaa82c3540ae8aa833b7b")
+    .then(res => { console.log(res) })
+    .catch(err => console.log(err));
+  }
+  loadSquad = () => {
+    API.getActivity(this.state.id)
+    .then(res => {
+      this.setState({SquadMates: res.data.users});
+      this.state.SquadMates.map(id =>(
+        this.getNames(id)
+      ))
+    }).catch(err => console.log(err));
+  }
+  getNames = (id) => {
+    API.getUser(id)
+    .then(res => this.setState({Attendees:[...this.state.Attendees, res.data.name]})
+  )
+    .catch(err => console.log(err))
   }
 
   render() {
@@ -31,7 +63,15 @@ class EventDetails extends Component {
             />
           </Grid>
           <Grid item xs={8}>
-            <Attendees id={this.state.id} />
+            <Button
+              onClick={()=>this.handleInterested()}
+            >
+              #IwannaGo
+            </Button>
+          </Grid>
+          <Grid item xs={8}>
+            {console.log(this.state.Attendees)}
+            <Attendees squad={this.state.Attendees} />
           </Grid>
         </Grid>
         <Comment id={this.state.id} />

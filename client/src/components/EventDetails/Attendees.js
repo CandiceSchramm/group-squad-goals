@@ -15,21 +15,6 @@ const styles = theme => ({
 });
 
 class Attendees extends Component {
-  state = {
-    eventID: this.props.id,
-    SquadMates: ["candice"]
-  };
-  // componentDidMount = () => {
-  //     this.loadSquad(this.state.eventID);
-  // }
-  // loadSquad = eventID => {
-  //     API.getInterested(eventID)
-  //     .then(res =>
-  //         console.log(res)
-  //         // this.setState({SquadMates: res.data})
-  //     ).catch(err => console.log(err));
-  // }
-
   render() {
     const { classes } = this.props;
 
@@ -39,11 +24,12 @@ class Attendees extends Component {
           <Typography variant="headline" component="h3">
             #PotentialSquad
           </Typography>
-            {this.state.SquadMates.length ? (
+            {this.props.squad.length > 0 ? (
               <div>
-                {this.state.SquadMates.map(Squad => (
+                {console.log(this.props.squad)}
+                {this.props.squad.map(squad => (
                   <AttendeeChip
-                  attendee={Squad}
+                  attendee={squad}
                   >
 
                   </AttendeeChip>

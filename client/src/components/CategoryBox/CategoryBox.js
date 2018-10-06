@@ -48,11 +48,11 @@ class CategoryBox extends Component {
   };
 
   componentDidMount = () => {
-    let info = "&location=Salt+Lake+City&date=This+Week&within=25";
+    let location = "Salt+Lake+City"
+    let info = "&location=" + location + "&date=This+Week&within=25";
     API.search(info)
       .then(res => {
         this.setState({ events: res.data.events.event });
-        console.log(this.state.events);
       })
       .catch(err => console.log(err));
 
