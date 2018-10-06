@@ -5,6 +5,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
+import API from '../../utils/API';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
     root: {
@@ -21,25 +23,21 @@ const styles = theme => ({
     alert('You clicked the delete icon.'); // eslint-disable-line no-alert
   }
   
-  function handleClick() {
-    alert("instead of an alert, this will take you to that user's profile"); // eslint-disable-line no-alert
-  }
-  
   function AttendeeChip(props) {
     const { classes } = props;
     return (
       <div className={classes.root}>
-        <Chip
-          avatar={
-            <Avatar>
-              <FaceIcon />
-            </Avatar>
-          }
-          label={props.attendee}
-          onClick={handleClick}
-          className={classes.chip}
-        />
-        
+        <Link to={`/profile/${props.profileLink}`}>
+          <Chip
+            avatar={
+              <Avatar>
+                <FaceIcon />
+              </Avatar>
+            }
+            label={props.attendee}
+            className={classes.chip}
+          />
+        </Link>  
       </div>
     );
   }

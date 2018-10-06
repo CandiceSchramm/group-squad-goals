@@ -55,6 +55,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/events" component={Events} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/:id" component={Profile} />
             <Route exact path="/activity/:id" component={Activity} />
             <Route exact path="/" component={Landing} />
             {haveLocation ? (

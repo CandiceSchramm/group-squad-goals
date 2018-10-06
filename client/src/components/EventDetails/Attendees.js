@@ -29,7 +29,8 @@ class Attendees extends Component {
                 {console.log(this.props.squad)}
                 {this.props.squad.map(squad => (
                   <AttendeeChip
-                  attendee={squad}
+                  attendee={squad.name}
+                  profileLink={squad._id}
                   >
 
                   </AttendeeChip>
